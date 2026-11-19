@@ -1,10 +1,89 @@
+
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>My Website</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cat Website</title>
+
+  <style>
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: Arial, sans-serif;
+      background: #f5eaff;
+      text-align: center;
+    }
+
+    .container {
+      background: white;
+      padding: 35px;
+      border-radius: 20px;
+      box-shadow: 0 8px 25px #00000015;
+      max-width: 400px;
+      width: 85%;
+    }
+
+    h1 {
+      color: #7546a6;
+    }
+
+    img {
+      width: 100%;
+      border-radius: 15px;
+    }
+
+    button {
+      background: #905bd3;
+      color: white;
+      border: none;
+      padding: 14px 25px;
+      border-radius: 10px;
+      font-size: 16px;
+      cursor: pointer;
+      margin-top: 15px;
+    }
+
+    button:hover {
+      background: #7040aa;
+    }
+
+    #message {
+      color: #7546a6;
+      font-weight: bold;
+      margin-top: 20px;
+    }
+  </style>
 </head>
+
 <body>
-  <h1>0</h1>
-  <p>2</p>
+
+  <div class="container">
+    <h1>Welcome to Cat World!</h1>
+
+    <img
+      src="https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?w=800"
+      alt="Cute cat"
+    >
+
+    <p>Look at this adorable cat.</p>
+
+    <button onclick="showMessage()">
+      Click Me!
+    </button>
+
+    <p id="message"></p>
+  </div>
+
+  <script>
+    function showMessage() {
+      document.getElementById("message").textContent =
+        "MEOW! You are awesome!";
+    }
+  </script>
+
 </body>
 </html>
