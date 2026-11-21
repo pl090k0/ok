@@ -1,6 +1,144 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Private Access</title>
+
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: #000;
+  color: #f5f5f7;
+  font-family: -apple-system, BlinkMacSystemFont,
+    "SF Pro Display", "Helvetica Neue", Arial, sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container {
+  width: 90%;
+  max-width: 360px;
+  text-align: center;
+}
+
+h1 {
+  font-size: 25px;
+  font-weight: 500;
+  letter-spacing: -0.7px;
+  margin-bottom: 10px;
+}
+
+.subtitle {
+  color: #777;
+  font-size: 14px;
+  margin-bottom: 30px;
+}
+
+input {
+  width: 100%;
+  padding: 14px;
+  background: #111;
+  border: 1px solid #333;
+  border-radius: 9px;
+  color: white;
+  font-size: 15px;
+  outline: none;
+  text-align: center;
+}
+
+input:focus {
+  border-color: #777;
+}
+
+button {
+  width: 100%;
+  padding: 14px;
+  margin-top: 12px;
+  border: none;
+  border-radius: 9px;
+  background: #f5f5f7;
+  color: #000;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #d9d9dc;
+}
+
+#error {
+  color: #ff5555;
+  font-size: 13px;
+  margin-top: 15px;
+}
+
+#protected {
+  display: none;
+}
+
+.footer {
+  position: fixed;
+  bottom: 20px;
+  color: #444;
+  font-size: 11px;
+}
+</style>
 </head>
+
 <body>
+
+<div class="container" id="login">
+  <h1>Private Access</h1>
+  <p class="subtitle">Enter your password to continue.</p>
+
+  <form onsubmit="checkPassword(event)">
+    <input
+      type="password"
+      id="password"
+      placeholder="Password"
+      autocomplete="current-password"
+      required
+    >
+
+    <button type="submit">Continue</button>
+  </form>
+
+  <p id="error"></p>
+</div>
+
+<div class="container" id="protected">
+  <h1>Access Granted</h1>
+  <p class="subtitle">Welcome. You have successfully signed in.</p>
+</div>
+
+<div class="footer">
+  Private Portal
+</div>
+
+<script>
+function checkPassword(event) {
+  event.preventDefault();
+
+  const password = document.getElementById("password").value;
+
+  if (password === "verifybank") {
+    document.getElementById("login").style.display = "none";
+    document.getElementById("protected").style.display = "block";
+  } else {
+    document.getElementById("error").textContent =
+      "Incorrect password. Please try again.";
+  }
+}
+</script>
 
 </body>
 </html>
